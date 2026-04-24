@@ -20,7 +20,7 @@ export function HomePage() {
       word: "product designer",
       color: "text-yellow-400",
       tooltip:
-        "Consumer apps, enterprise tools, and physical products. Metromile, Vistaprint, Gap Inc., now Bee Studio.",
+        "Consumer apps, enterprise tools, and physical products. Metromile, Vistaprint, Gap Inc., now Amazon Bookmarks.",
     },
     " with 12 years of experience building ",
     {

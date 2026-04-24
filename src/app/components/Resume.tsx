@@ -4,6 +4,14 @@ import { Download, Briefcase, GraduationCap, Code } from "lucide-react";
 export function Resume() {
   const experiences = [
     {
+      company: "Amazon",
+      role: "Product Designer",
+      period: "2026-Current",
+      highlights: [
+        "Enhancing the Bookmark Design Language documentation site with improved visual samples, guidelines, and overall documentation quality.",
+      ],
+    },
+    {
       company: "Bee Studio",
       role: "Designer, Developer",
       period: "2023-Current",
