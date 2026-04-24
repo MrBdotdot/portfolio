@@ -1,0 +1,16 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Continuous-loop scroll for preview tiles. The image is rendered twice
+   (stacked) and the inner track translates by 50% so the loop seams at the
+   midpoint, giving the illusion of an endless scroll. */
+@keyframes scroll-loop-y {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+@keyframes scroll-loop-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
