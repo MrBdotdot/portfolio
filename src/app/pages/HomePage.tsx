@@ -45,6 +45,7 @@ export function HomePage() {
       id: 1,
       imageUrl: "https://images.unsplash.com/photo-1759505017950-25e0733b9e68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzI2NzgzMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       title: "Interface Design",
+      annotation: "Flip theme, size, variant and state. The button in the next tile rebuilds itself from those choices, the same token-and-variant model a component library runs on.",
       category: "Product",
       size: "large" as const,
       variableSwitcher: true,
@@ -53,6 +54,7 @@ export function HomePage() {
       id: 2,
       imageUrl: "https://images.unsplash.com/photo-1770581939371-326fc1537f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0eXBvZ3JhcGh5JTIwcG9zdGVyfGVufDF8fHx8MTc3MjYwNDI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       title: "Typography Systems",
+      annotation: "The live result of the switcher: the rendered button and the CSS it resolves to.",
       category: "Visual Design",
       size: "medium" as const,
       variablePreview: true,
@@ -62,6 +64,7 @@ export function HomePage() {
       imageUrl: "https://i.imgur.com/txdTssj.png",
       scrollLoop: true,
       title: "Pattern Library",
+      annotation: "A slow loop through a pattern library, too long to fit on one screen.",
       category: "Systems",
       size: "small" as const,
     },
@@ -70,6 +73,7 @@ export function HomePage() {
       imageUrl: shopImage,
       hoverImageUrl: brandSwitchImage,
       title: "Mobile Experience",
+      annotation: "Hover to re-skin the same shop screen for a second brand. One set of components, different themes.",
       category: "Mobile",
       size: "small" as const,
     },
@@ -77,6 +81,7 @@ export function HomePage() {
       id: 5,
       imageUrl: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMGRlc2lnbiUyMHN5c3RlbXxlbnwxfHx8fDE3NzI2MjI4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       title: "Component Architecture",
+      annotation: "Move your cursor into the stack to drop in a new block and watch the rest reflow, like auto layout in Figma.",
       category: "Systems",
       size: "medium" as const,
       autoLayoutPush: true,
@@ -86,6 +91,7 @@ export function HomePage() {
       imageUrl: visageColorImage,
       revealPair: [visageColorImage, visageComponentsImage] as [string, string],
       title: "Visage Design System",
+      annotation: "Sweep across to peel back the color foundations and reveal the components built on them.",
       category: "Design Systems",
       size: "large" as const,
     },
@@ -98,16 +104,25 @@ export function HomePage() {
         <InteractiveHero name="William Bee" segments={heroSegments} />
       </section>
 
-      {/* Gallery — full width, full tile size */}
-      <section className="relative px-6 pb-24">
-        <div className="max-w-6xl mx-auto w-full">
-          <MasonryGrid items={masonryItems} />
-        </div>
-      </section>
-
       {/* Case Studies */}
       <section className="px-6 py-24">
         <CaseStudies />
+      </section>
+
+      {/* Playground */}
+      <section className="relative px-6 pb-24">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="mb-4">
+            <span className="text-sm uppercase tracking-[0.2em] text-yellow-400 mb-4 block">
+              Playground
+            </span>
+            <h2 className="text-4xl md:text-5xl mb-4">Nick nacks</h2>
+            <p className="text-lg text-neutral-500 max-w-xl">
+              Small interactive experiments. Hover, drag, and poke at them.
+            </p>
+          </div>
+          <MasonryGrid items={masonryItems} />
+        </div>
       </section>
 
       {/* Footer */}

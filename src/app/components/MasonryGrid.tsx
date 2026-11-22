@@ -13,6 +13,8 @@ interface MasonryItem {
   variablePreview?: boolean;
   revealPair?: [string, string];
   title: string;
+  /** Short caption shown under the tile: what it is / how to play with it. */
+  annotation?: string;
   category: string;
   size: "small" | "medium" | "large";
 }
@@ -212,33 +214,42 @@ function ScrollLoopTile({ imageUrl }: { imageUrl: string }) {
 export function MasonryGrid({ items }: MasonryGridProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const getSizeClasses = (size: string) => {
-    switch (size) {
+  // Grid placement lives on the outer figure; the fixed height lives on the
+  // tile itself so the caption can sit underneath without being clipped.
+  const getSpanClasses = (item: MasonryItem) => {
+    if (item.autoLayoutPush) return "md:col-span-2 md:row-span-2 self-end";
+    switch (item.size) {
       case "large":
-        return "md:col-span-2 md:row-span-2 h-[450px]";
+        return "md:col-span-2 md:row-span-2";
       case "medium":
-        return "md:col-span-2 h-[300px]";
+        return "md:col-span-2";
       default:
-        return "h-[450px]";
+        return "";
     }
   };
 
+  const getHeightClass = (item: MasonryItem) =>
+    item.size === "medium" && !item.autoLayoutPush ? "h-[300px]" : "h-[450px]";
+
   return (
     <VariableSwitcherProvider>
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-auto pt-12 pb-12">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-8 auto-rows-auto pt-12 pb-12">
       {items.map((item, index) => {
         const isHovered = hoveredId === item.id;
         const hasHoverImage = !!item.hoverImageUrl;
 
         return (
-          <motion.div
+          <motion.figure
             key={item.id}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.08 }}
+            className={`flex flex-col gap-3 m-0 ${getSpanClasses(item)}`}
+          >
+          <div
             className={`relative overflow-hidden rounded-lg group ${
-              item.revealPair || item.hoverImageUrl ? "cursor-pointer" : item.scrollLoop ? "cursor-not-allowed" : item.autoLayoutPush ? "cursor-default" : "cursor-default"
-            } ${item.autoLayoutPush ? getSizeClasses(item.size).replace(/h-\[\d+px\]/, "") + " md:row-span-2 self-end h-[450px]" : getSizeClasses(item.size)}`}
+              item.revealPair || item.hoverImageUrl ? "cursor-pointer" : item.scrollLoop ? "cursor-not-allowed" : "cursor-default"
+            } ${getHeightClass(item)}`}
             onMouseEnter={() => setHoveredId(item.id)}
             onMouseLeave={() => setHoveredId(null)}
             onTouchStart={() => setHoveredId(item.id)}
@@ -282,7 +293,24 @@ export function MasonryGrid({ items }: MasonryGridProps) {
                 transition={{ duration: 0.4, ease: "easeOut" }}
               />
             )}
-          </motion.div>
+          </div>
+
+            {(item.title || item.annotation) && (
+              <figcaption className={`px-1 ${item.autoLayoutPush ? "md:w-1/2 md:ml-auto" : ""}`}>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-sm text-white">{item.title}</span>
+                  <span className="text-[10px] uppercase tracking-[0.15em] text-yellow-400/70">
+                    {item.category}
+                  </span>
+                </div>
+                {item.annotation && (
+                  <p className="mt-1 text-sm leading-relaxed text-neutral-500">
+                    {item.annotation}
+                  </p>
+                )}
+              </figcaption>
+            )}
+          </motion.figure>
         );
       })}
     </div>
