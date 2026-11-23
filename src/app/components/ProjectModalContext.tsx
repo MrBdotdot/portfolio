@@ -15,7 +15,7 @@ export interface ProjectData {
   teaser?: boolean;
   teaserLabel?: string;
   /** Render a coded illustration instead of imageUrl. */
-  visual?: "bookmarkDocs";
+  visual?: "bookmarkDocs" | "amazonLogo";
   // Rich content fields
   overview?: string;
   roleProgression?: string[];

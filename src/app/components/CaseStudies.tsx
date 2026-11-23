@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useProjectModal, type ProjectData } from "./ProjectModalContext";
 import { ScrollLoopImageHorizontal } from "./ScrollLoopImageHorizontal";
 import { BookmarkDocsVisual } from "./BookmarkDocsVisual";
+import { LogoVisual } from "./LogoVisual";
 import uglyPickleImg from "figma:asset/d6a65d188d942a944a4695c8dc33a2d00bca918b.png";
 import visageSwanImg from "figma:asset/3c5327293301d0fe1c77702df45a12aeded5250f.png";
 import swanAnnouncementImg from "figma:asset/f45c1cce1af889b90f09f3d4dd3f46b066c88df8.png";
@@ -11,13 +12,13 @@ import sherpaImg from "figma:asset/d4feb7c97e069988e00182b9612e1bf326c811b3.png"
 export const caseStudies: ProjectData[] = [
   {
     id: 5,
-    title: "Docs That Do the Teaching",
+    title: "Better Docs, Fewer Manual Steps",
     subtitle: "Amazon / Bookmark Design Language",
     description:
-      "A design system is only as good as how well people can learn it. I'm raising the bar on the Bookmark Design Language documentation site with clearer visual samples, sharper guidelines, and better documentation quality across the board.",
+      "Working on the Bookmark Design Language docs site, with clearer visual samples, sharper guidelines and better documentation overall. Alongside it, I'm building automations that take the repetitive work out of design system processes.",
     imageUrl: "",
-    visual: "bookmarkDocs",
-    tags: ["Design Systems", "Documentation", "Content Design", "Guidelines"],
+    visual: "amazonLogo",
+    tags: ["Design Systems", "Documentation", "Automation", "DesignOps"],
     year: "2026–Present",
     teaser: true,
     teaserLabel: "Case study in progress",
@@ -216,7 +217,9 @@ export function CaseStudies() {
               >
                 {/* Image */}
                 <div className="w-full lg:w-3/5 relative overflow-visible">
-                  {study.visual === "bookmarkDocs" ? (
+                  {study.visual === "amazonLogo" ? (
+                    <LogoVisual name="amazon" alt="Amazon" fallback={<BookmarkDocsVisual />} />
+                  ) : study.visual === "bookmarkDocs" ? (
                     <BookmarkDocsVisual />
                   ) : study.scrollLoopHorizontal ? (
                     <ScrollLoopImageHorizontal
