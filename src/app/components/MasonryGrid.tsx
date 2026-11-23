@@ -193,11 +193,13 @@ function RevealTile({
  */
 function ScrollLoopTile({ imageUrl }: { imageUrl: string }) {
   return (
-    <div className="absolute inset-0 overflow-hidden bg-neutral-900">
-      <div
-        className="flex flex-col will-change-transform"
-        style={{ animation: "scroll-loop-y 20s linear infinite" }}
-      >
+    <div
+      className="scroll-loop-tile absolute inset-0 overflow-hidden bg-neutral-900 outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-inset rounded-lg"
+      tabIndex={0}
+      role="img"
+      aria-label="Looping illustrated card pattern. Pauses on hover or focus, and stays still when reduced motion is on."
+    >
+      <div className="scroll-loop-track flex flex-col will-change-transform">
         <img src={imageUrl} alt="" className="w-full block" draggable={false} />
         <img
           src={imageUrl}
@@ -207,6 +209,11 @@ function ScrollLoopTile({ imageUrl }: { imageUrl: string }) {
           aria-hidden="true"
         />
       </div>
+      {/* State badge: tells people the motion stopped, and why */}
+      <span className="scroll-loop-badge pointer-events-none absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm border border-neutral-700 text-[10px] uppercase tracking-[0.15em] text-neutral-200">
+        <span className="badge-paused">Paused</span>
+        <span className="badge-reduced">Reduced motion</span>
+      </span>
     </div>
   );
 }

@@ -30,8 +30,10 @@ export function ScrollLoopImageHorizontal({
   // Ref mirror of isHovering so the RAF loop reads it without re-subscribing.
   const isHoveringRef = useRef(false);
 
-  // Auto-scroll loop — paused while hovering.
+  // Auto-scroll loop — paused while hovering, off entirely for people who
+  // have asked their OS for reduced motion (hover-to-scrub still works).
   useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const durationMs = 30_000;
     let lastTimestamp: number | null = null;
     let raf = 0;

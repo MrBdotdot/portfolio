@@ -10,6 +10,33 @@
   to   { transform: translateY(-50%); }
 }
 
+/* Playground "Motion, Considered" tile.
+   - Pauses while hovered or focused (WCAG 2.2.2 Pause, Stop, Hide)
+   - Holds still entirely when the OS asks for reduced motion
+   - A badge says which state it's in */
+.scroll-loop-track {
+  animation: scroll-loop-y 20s linear infinite;
+}
+.scroll-loop-tile:hover .scroll-loop-track,
+.scroll-loop-tile:focus-visible .scroll-loop-track {
+  animation-play-state: paused;
+}
+.scroll-loop-badge {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+.scroll-loop-badge .badge-reduced { display: none; }
+.scroll-loop-tile:hover .scroll-loop-badge,
+.scroll-loop-tile:focus-visible .scroll-loop-badge {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-loop-track { animation: none; }
+  .scroll-loop-badge { opacity: 1; transition: none; }
+  .scroll-loop-badge .badge-paused { display: none; }
+  .scroll-loop-badge .badge-reduced { display: inline; }
+}
+
 @keyframes scroll-loop-x {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

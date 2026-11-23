@@ -64,7 +64,7 @@ export function HomePage() {
       imageUrl: "https://i.imgur.com/txdTssj.png",
       scrollLoop: true,
       title: "Motion, Considered",
-      annotation: "Designed with motion and accessibility in mind. Hover and watch the cursor: it tells you this tile isn't interactive before you try to click it.",
+      annotation: "Motion, designed for everyone. Hover or tab to it and the loop pauses. Turn on reduced motion in your OS and it holds still. The cursor tells you it isn't clickable before you try.",
       category: "Accessibility & motion",
       size: "small" as const,
     },
