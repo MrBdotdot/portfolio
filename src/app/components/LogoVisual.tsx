@@ -28,11 +28,11 @@ export function LogoVisual({
   const src = findLogo(name);
   if (!src) return <>{fallback ?? null}</>;
   return (
-    <div className="aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 bg-neutral-100 flex items-center justify-center">
+    <div className="aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 flex items-center justify-center">
       <img
         src={src}
         alt={alt}
-        className="w-2/5 max-w-[320px] h-auto object-contain"
+        className="w-[45%] max-w-[340px] h-auto object-contain"
         draggable={false}
       />
     </div>
