@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useProjectModal, type ProjectData } from "./ProjectModalContext";
 import { ScrollLoopImageHorizontal } from "./ScrollLoopImageHorizontal";
+import { BookmarkDocsVisual } from "./BookmarkDocsVisual";
 import uglyPickleImg from "figma:asset/d6a65d188d942a944a4695c8dc33a2d00bca918b.png";
 import visageSwanImg from "figma:asset/3c5327293301d0fe1c77702df45a12aeded5250f.png";
 import swanAnnouncementImg from "figma:asset/f45c1cce1af889b90f09f3d4dd3f46b066c88df8.png";
@@ -8,6 +9,19 @@ import gapIncImg from "figma:asset/4bb80abe6d41a8ad762fe153d73d7a6cc8e19ed8.png"
 import sherpaImg from "figma:asset/d4feb7c97e069988e00182b9612e1bf326c811b3.png";
 
 export const caseStudies: ProjectData[] = [
+  {
+    id: 5,
+    title: "Docs That Do the Teaching",
+    subtitle: "Amazon / Bookmark Design Language",
+    description:
+      "A design system is only as good as how well people can learn it. I'm raising the bar on the Bookmark Design Language documentation site with clearer visual samples, sharper guidelines, and better documentation quality across the board.",
+    imageUrl: "",
+    visual: "bookmarkDocs",
+    tags: ["Design Systems", "Documentation", "Content Design", "Guidelines"],
+    year: "2026–Present",
+    teaser: true,
+    teaserLabel: "Case study in progress",
+  },
   {
     id: 1,
     title: "From Mobile to Multi-Brand Systems",
@@ -137,6 +151,8 @@ export const caseStudies: ProjectData[] = [
       "Hard ideas are easier to learn when you can play with them. Sherpa lets you do that. Built from the ground up using Next.js and React, with a headless CMS powering the content architecture.",
     imageUrl: sherpaImg,
     scrollLoop: false,
+    teaser: true,
+    teaserLabel: "Coming Soon",
     tags: ["Product Design", "Next.js", "React", "CMS", "Interactive Learning"],
     year: "2025–Present",
     overview:
@@ -186,12 +202,12 @@ export function CaseStudies() {
       <div className="space-y-24">
         {caseStudies.map((study, index) => {
           const isEven = index % 2 === 0;
-          const isSherpa = study.id === 4;
+          const isTeaser = !!study.teaser;
           return (
             <div
               key={study.id}
-              className={isSherpa ? "" : "group cursor-pointer"}
-              onClick={() => !isSherpa && openProject(study)}
+              className={isTeaser ? "" : "group cursor-pointer"}
+              onClick={() => !isTeaser && openProject(study)}
             >
               <div
                 className={`flex flex-col ${
@@ -200,19 +216,21 @@ export function CaseStudies() {
               >
                 {/* Image */}
                 <div className="w-full lg:w-3/5 relative overflow-visible">
-                  {study.scrollLoopHorizontal ? (
+                  {study.visual === "bookmarkDocs" ? (
+                    <BookmarkDocsVisual />
+                  ) : study.scrollLoopHorizontal ? (
                     <ScrollLoopImageHorizontal
                       src={study.imageUrl}
                       alt={study.title}
                     />
                   ) : (
-                    <div className={`aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 ${!isSherpa && "group-hover:border-yellow-400/30"} transition-colors duration-500`}>
+                    <div className={`aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 ${!isTeaser && "group-hover:border-yellow-400/30"} transition-colors duration-500`}>
                       <img
                         src={study.imageUrl}
                         alt={study.title}
-                        className={`w-full h-full object-cover ${!isSherpa && "transition-transform duration-700 group-hover:scale-105"}`}
+                        className={`w-full h-full object-cover ${!isTeaser && "transition-transform duration-700 group-hover:scale-105"}`}
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent ${!isSherpa && "opacity-0 group-hover:opacity-100"} transition-opacity duration-500`} />
+                      <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent ${!isTeaser && "opacity-0 group-hover:opacity-100"} transition-opacity duration-500`} />
                     </div>
                   )}
 
@@ -227,7 +245,7 @@ export function CaseStudies() {
                   <span className="text-xs uppercase tracking-[0.15em] text-yellow-400/70 mb-2">
                     {study.subtitle}
                   </span>
-                  <h3 className={`text-2xl md:text-3xl mb-4 ${!isSherpa && "group-hover:text-yellow-400"} transition-colors duration-300`}>
+                  <h3 className={`text-2xl md:text-3xl mb-4 ${!isTeaser && "group-hover:text-yellow-400"} transition-colors duration-300`}>
                     {study.title}
                   </h3>
                   <p className="text-neutral-400 mb-6 leading-relaxed">
@@ -237,15 +255,15 @@ export function CaseStudies() {
                     {study.tags.map((tag) => (
                       <span
                         key={tag}
-                        className={`px-3 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400 ${!isSherpa && "group-hover:border-yellow-400/20 group-hover:text-yellow-400/70"} transition-colors duration-300`}
+                        className={`px-3 py-1 text-xs border border-neutral-700 rounded-full text-neutral-400 ${!isTeaser && "group-hover:border-yellow-400/20 group-hover:text-yellow-400/70"} transition-colors duration-300`}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  {isSherpa ? (
+                  {isTeaser ? (
                     <div className="inline-flex items-center gap-2 bg-neutral-900/60 border border-yellow-400/20 rounded-lg px-4 py-3 w-fit">
-                      <span className="text-sm text-yellow-400/70">Coming Soon</span>
+                      <span className="text-sm text-yellow-400/70">{study.teaserLabel ?? "Coming Soon"}</span>
                     </div>
                   ) : (
                     <div className="flex items-center gap-2 text-sm text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

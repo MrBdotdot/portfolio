@@ -11,6 +11,11 @@ export interface ProjectData {
   details?: string[];
   scrollLoop?: boolean;
   scrollLoopHorizontal?: boolean;
+  /** Not clickable yet; shows a status pill instead of "View Case Study". */
+  teaser?: boolean;
+  teaserLabel?: string;
+  /** Render a coded illustration instead of imageUrl. */
+  visual?: "bookmarkDocs";
   // Rich content fields
   overview?: string;
   roleProgression?: string[];
