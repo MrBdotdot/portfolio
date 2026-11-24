@@ -4,6 +4,14 @@ import { useProjectModal } from "./ProjectModalContext";
 import { useEffect } from "react";
 import { GapIncChallenge, GapIncLoyalty, GapIncLibrary } from "./GapIncContent";
 import {
+  AmazonContext,
+  AmazonDrift,
+  AmazonChecks,
+  AmazonSlackLog,
+  AmazonImpact,
+  AmazonAlso,
+} from "./AmazonContent";
+import {
   VistaprintStartingPoint,
   VistaprintFoundation,
   VistaprintGuidelines,
@@ -216,6 +224,22 @@ export function ProjectModal() {
                   )}
 
                 {/* === Project-specific content sections === */}
+                {activeProject.id === 5 && (
+                  <>
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonContext />
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonDrift />
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonChecks />
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonSlackLog />
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonImpact />
+                    <div className="mt-6 pt-14 border-t border-neutral-800" />
+                    <AmazonAlso />
+                  </>
+                )}
                 {activeProject.id === 1 && (
                   <>
                     <div className="mt-6 pt-14 border-t border-neutral-800" />

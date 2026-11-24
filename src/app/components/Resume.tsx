@@ -8,7 +8,8 @@ export function Resume() {
       role: "Product Designer",
       period: "2026-Current",
       highlights: [
-        "Enhancing the Bookmark Design Language documentation site with improved visual samples, guidelines, and overall documentation quality.",
+        "Linked Amazon Books' Figma components to the real web code with Figma Code Connect, and built automated checks and a daily Slack log that keep those links true.",
+        "Improved the Amazon Books design system docs site, audited the icon library and component names, and built a Slack feed for library changes.",
       ],
     },
     {

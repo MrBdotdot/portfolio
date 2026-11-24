@@ -7,21 +7,46 @@ import uglyPickleImg from "figma:asset/d6a65d188d942a944a4695c8dc33a2d00bca918b.
 import visageSwanImg from "figma:asset/3c5327293301d0fe1c77702df45a12aeded5250f.png";
 import swanAnnouncementImg from "figma:asset/f45c1cce1af889b90f09f3d4dd3f46b066c88df8.png";
 import gapIncImg from "figma:asset/4bb80abe6d41a8ad762fe153d73d7a6cc8e19ed8.png";
+import amazonHeroImg from "../../assets/amazon/code-connect-hero.png";
 import sherpaImg from "figma:asset/d4feb7c97e069988e00182b9612e1bf326c811b3.png";
 
 export const caseStudies: ProjectData[] = [
   {
     id: 5,
-    title: "Better Docs, Fewer Manual Steps",
-    subtitle: "Amazon / Bookmark Design Language",
+    title: "Keeping Design and Code Honest",
+    subtitle: "Amazon / Amazon Books Design Systems",
     description:
-      "Working on the Bookmark Design Language docs site, with clearer visual samples, sharper guidelines and better documentation overall. Alongside it, I'm building automations that take the repetitive work out of design system processes.",
-    imageUrl: "",
+      "I linked Amazon Books' Figma components to the real web code, then built the checks that keep those links true. Alongside it: a clearer docs site, two library audits, a Slack feed for library changes and a year-end handoff.",
+    imageUrl: amazonHeroImg,
     visual: "amazonLogo",
-    tags: ["Design Systems", "Documentation", "Automation", "DesignOps"],
-    year: "2026–Present",
-    teaser: true,
-    teaserLabel: "Case study in progress",
+    tags: ["Design Systems", "Design to Code", "Automation", "Documentation"],
+    year: "2026",
+    overview:
+      "Amazon Books designs for the Kindle apps, Kindle E-Reader devices and Amazon Shopping on the web. When a developer inspects one of our components in Figma, Figma can show them our real code instead of a rough guess. That only works while the link between design and code stays true. When I checked ours, three of the five links pointed at Figma components that had been deleted months earlier, and nothing had reported it. I rebuilt the links and designed checks to catch a broken link within a day, not months later.",
+    roleProgression: ["Design Systems UX Designer"],
+    skillTags: [
+      "Design Systems",
+      "Figma Code Connect",
+      "Design-to-Code Workflow",
+      "Documentation",
+      "Automation",
+      "Accessibility",
+      "AI-Assisted Development",
+    ],
+    teamInfo: [
+      { label: "Team", value: "4-person design systems team, plus web and mobile engineers" },
+      { label: "Surface Area", value: "Kindle iOS and Android, E-Reader, Amazon Shopping web" },
+      { label: "Timeframe", value: "2026" },
+    ],
+    primaryImpact:
+      "Turned a few hand-made links into a system with rules: 43 links across two Figma libraries, three automated checks and a daily Slack log written for designers. Engineers reviewed and approved every change, and the engineering team that owns the release pipeline confirmed they'll add the checks to it.",
+    impactBullets: [
+      "Audited the existing links and found three of five pointing at Figma components that no longer existed.",
+      "Rebuilt every link as one file per Figma component, kept next to the code, with plain-language notes on what it maps and what it leaves out on purpose.",
+      "Split drift into two problems with two different fixes: code changes upload on their own, and Figma changes go back to a designer.",
+      "Designed three checks for three moments: before a change merges, after it merges and every morning.",
+      "Wrote the daily Slack log for designers. It leads with what's broken for the people using the component, and links straight to the fix.",
+    ],
   },
   {
     id: 1,
