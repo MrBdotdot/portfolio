@@ -302,19 +302,11 @@ export function MasonryGrid({ items }: MasonryGridProps) {
             )}
           </div>
 
-            {(item.title || item.annotation) && (
-              <figcaption className={`px-1 ${item.autoLayoutPush ? "md:w-1/2 md:ml-auto" : ""}`}>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-sm text-white">{item.title}</span>
-                  <span className="text-[10px] uppercase tracking-[0.15em] text-yellow-400/70">
-                    {item.category}
-                  </span>
-                </div>
-                {item.annotation && (
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-500">
-                    {item.annotation}
-                  </p>
-                )}
+            {item.title && (
+              <figcaption
+                className={`px-1 text-sm text-white ${item.autoLayoutPush ? "md:w-1/2 md:ml-auto" : ""}`}
+              >
+                {item.title}
               </figcaption>
             )}
           </motion.figure>

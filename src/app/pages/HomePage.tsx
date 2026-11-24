@@ -113,13 +113,9 @@ export function HomePage() {
       <section className="relative px-6 pb-24">
         <div className="max-w-6xl mx-auto w-full">
           <div className="mb-4">
-            <span className="text-sm uppercase tracking-[0.2em] text-yellow-400 mb-4 block">
+            <span className="text-sm uppercase tracking-[0.2em] text-yellow-400 block">
               Playground
             </span>
-            <h2 className="text-4xl md:text-5xl mb-4">Nick nacks</h2>
-            <p className="text-lg text-neutral-500 max-w-xl">
-              Small interactive experiments. Hover, drag, and poke at them.
-            </p>
           </div>
           <MasonryGrid items={masonryItems} />
         </div>
