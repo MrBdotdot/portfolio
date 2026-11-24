@@ -42,33 +42,6 @@ export function HomePage() {
 
   const masonryItems = [
     {
-      id: 1,
-      imageUrl: "https://images.unsplash.com/photo-1759505017950-25e0733b9e68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzI2NzgzMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      title: "Design Tokens",
-      annotation: "Every option here is a token, not a hard-coded value. Flip to dark mode, swap a semantic color, or jump to a preset, and the button next door re-themes itself. One component, ready for many products and use cases.",
-      category: "Tokens & theming",
-      size: "large" as const,
-      variableSwitcher: true,
-    },
-    {
-      id: 2,
-      imageUrl: "https://images.unsplash.com/photo-1770581939371-326fc1537f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0eXBvZ3JhcGh5JTIwcG9zdGVyfGVufDF8fHx8MTc3MjYwNDI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      title: "Live Preview",
-      annotation: "The button those tokens build, plus the CSS variables it resolves to.",
-      category: "Tokens & theming",
-      size: "medium" as const,
-      variablePreview: true,
-    },
-    {
-      id: 3,
-      imageUrl: "https://i.imgur.com/txdTssj.png",
-      scrollLoop: true,
-      title: "Motion, Considered",
-      annotation: "Motion, designed for everyone. Hover or tab to it and the loop pauses. Turn on reduced motion in your OS and it holds still. The cursor tells you it isn't clickable before you try.",
-      category: "Accessibility & motion",
-      size: "small" as const,
-    },
-    {
       id: 4,
       imageUrl: shopImage,
       hoverImageUrl: brandSwitchImage,
@@ -94,6 +67,24 @@ export function HomePage() {
       annotation: "Sweep across to peel back the color foundations and reveal the components built on them.",
       category: "Design systems",
       size: "large" as const,
+    },
+    {
+      id: 1,
+      imageUrl: "https://images.unsplash.com/photo-1759505017950-25e0733b9e68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcHJvZHVjdCUyMGRlc2lnbiUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzI2NzgzMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Design Tokens",
+      annotation: "Every option here is a token, not a hard-coded value. Flip to dark mode, swap a semantic color, or jump to a preset, and the button next door re-themes itself. One component, ready for many products and use cases.",
+      category: "Tokens & theming",
+      size: "large" as const,
+      variableSwitcher: true,
+    },
+    {
+      id: 2,
+      imageUrl: "https://images.unsplash.com/photo-1770581939371-326fc1537f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0eXBvZ3JhcGh5JTIwcG9zdGVyfGVufDF8fHx8MTc3MjYwNDI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      title: "Live Preview",
+      annotation: "The button those tokens build, plus the CSS variables it resolves to.",
+      category: "Tokens & theming",
+      size: "medium" as const,
+      variablePreview: true,
     },
   ];
 

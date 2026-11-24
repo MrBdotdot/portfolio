@@ -224,10 +224,10 @@ export function MasonryGrid({ items }: MasonryGridProps) {
   // Grid placement lives on the outer figure; the fixed height lives on the
   // tile itself so the caption can sit underneath without being clipped.
   const getSpanClasses = (item: MasonryItem) => {
-    if (item.autoLayoutPush) return "md:col-span-2 md:row-span-2 self-end";
+    if (item.autoLayoutPush) return "";
     switch (item.size) {
       case "large":
-        return "md:col-span-2 md:row-span-2";
+        return "md:col-span-2";
       case "medium":
         return "md:col-span-2";
       default:
@@ -304,7 +304,7 @@ export function MasonryGrid({ items }: MasonryGridProps) {
 
             {item.title && (
               <figcaption
-                className={`px-1 text-sm text-white ${item.autoLayoutPush ? "md:w-1/2 md:ml-auto" : ""}`}
+                className="px-1 text-sm text-white"
               >
                 {item.title}
               </figcaption>

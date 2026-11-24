@@ -201,7 +201,7 @@ export function AutoLayoutTile({ className }: { className?: string }) {
       onMouseLeave={handleMouseLeave}
       style={{ cursor: isHovered ? "grab" : "default" }}
     >
-      <div className="bg-white rounded-lg overflow-hidden ml-auto" style={{ width: "50%" }}>
+      <div className="bg-white rounded-lg overflow-hidden w-full">
         {/* ── TOP LOCKED ── */}
         <div className="w-full">
           <img src={rewardsCard} alt="Rewards Card" className="w-full block" draggable={false} onLoad={handleImageLoad} />
