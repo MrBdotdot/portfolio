@@ -5,11 +5,13 @@ export function Resume() {
   const experiences = [
     {
       company: "Amazon",
-      role: "Product Designer",
-      period: "2026-Current",
+      role: "Design Systems UX Designer",
+      period: "2026",
       highlights: [
-        "Linked Amazon Books' Figma components to the real web code with Figma Code Connect, and built automated checks and a daily Slack log that keep those links true.",
-        "Improved the Amazon Books design system docs site, audited the icon library and component names, and built a Slack feed for library changes.",
+        "Linked Amazon Books' Figma components to production web code with Figma Code Connect: 43 links across two libraries, kept true by three automated checks.",
+        "Designed a daily Slack log that tells designers what broke, why it matters and where to fix it in Figma.",
+        "Improved the design system docs site with per-surface guidance, an examples panel and a sticker sheet covering every live component; added 36 example images across 23 pages.",
+        "Audited 204 icons and component naming across docs, Figma and code; built a Slack feed for library changes and wrote the year-end handoff.",
       ],
     },
     {
