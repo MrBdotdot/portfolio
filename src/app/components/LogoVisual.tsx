@@ -27,14 +27,19 @@ export function LogoVisual({
 }) {
   const src = findLogo(name);
   if (!src) return <>{fallback ?? null}</>;
+  // Same hover treatment as the photo cards: border warms, image zooms,
+  // gradient fades in (driven by the card's `group` class).
   return (
-    <div className="aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 flex items-center justify-center">
-      <img
-        src={src}
-        alt={alt}
-        className="w-[45%] max-w-[340px] h-auto object-contain"
-        draggable={false}
-      />
+    <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-neutral-800 group-hover:border-yellow-400/30 bg-neutral-900 transition-colors duration-500">
+      <div className="w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
+        <img
+          src={src}
+          alt={alt}
+          className="w-[45%] max-w-[340px] h-auto object-contain"
+          draggable={false}
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 }
