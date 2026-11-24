@@ -245,6 +245,32 @@ export function MasonryGrid({ items }: MasonryGridProps) {
         const isHovered = hoveredId === item.id;
         const hasHoverImage = !!item.hoverImageUrl;
 
+        // Design Tokens: the switcher panel and its live preview are one
+        // experiment, so they render as a single unit with one title. The
+        // preview sits flush with the panel's bottom edge.
+        if (item.variablePreview) return null;
+        if (item.variableSwitcher) {
+          return (
+            <motion.figure
+              key={item.id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              className="flex flex-col gap-3 m-0 md:col-span-4"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                <div className="relative overflow-hidden rounded-lg h-[450px]">
+                  <VariableSwitcherPanel />
+                </div>
+                <div className="relative overflow-hidden rounded-lg h-[300px]">
+                  <VariableSwitcherPreview />
+                </div>
+              </div>
+              <figcaption className="px-1 text-sm text-white">{item.title}</figcaption>
+            </motion.figure>
+          );
+        }
+
         return (
           <motion.figure
             key={item.id}
